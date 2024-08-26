@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Demo för Studenter</title>
+</head>
+
+<body>
+
+  <!-- Header med semantiska element -->
+  <header>
+    <h1>Välkommen till HTML Demo</h1>
+    <nav>
+      <ul>
+        <li><a href="#tabell">Tabell</a></li>
+        <li><a href="#form">Formulär</a></li>
+        <li><a href="#iframe">Iframe</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <hr />
+
+  <!-- Sektion för tabell -->
+  <section id="tabell">
+    <h2>Exempel på HTML-tabell</h2>
+    <table border="3">
+      <caption>Studentinformation</caption>
+      <tr>
+        <th>Namn</th>
+        <th>Ålder</th>
+        <th>Kurs</th>
+      </tr>
+      <tr>
+        <td>Anna Svensson</td>
+        <td>25</td>
+        <td>Webbutveckling</td>
+      </tr>
+      <tr>
+        <td>Johan Eriksson</td>
+        <td>22</td>
+        <td>Grafisk design</td>
+      </tr>
+    </table>
+  </section>
+
+  <br />
+  <hr />
+
+  <!-- Sektion för formulär -->
+  <section id="form">
+    <h2>Exempel på HTML-formulär</h2>
+    <form action="/submit" method="post">
+      <label for="name">Namn:</label>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">E-post:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="course">Kurs:</label>
+      <select id="course" name="course">
+        <option value="webbutveckling">Webbutveckling</option>
+        <option value="grafiskdesign">Grafisk design</option>
+        <option value="systemutveckling">Systemutveckling</option>
+      </select><br><br>
+
+      <input type="submit" value="Skicka">
+    </form>
+  </section>
+
+  <br />
+  <hr />
+
+  <!-- Sektion för iframe -->
+  <section id="iframe">
+    <h2>Exempel på iframe</h2>
+    <iframe src="https://www.vegabar.se/" loading="lazy" width="600" height="400" title="W3Schools"></iframe>
+  </section>
+
+  <!-- Footer med semantiska element -->
+  <footer>
+    <p>&copy; 2024 HTML Demo för Studenter</p>
+  </footer>
+
+</body>
+
+</html>
