@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* CSS för body tagen */
+body {
+  background: #C9D6FF;
+  background: -webkit-linear-gradient(to right, #E2E2E2, #C9D6FF);
+  background: linear-gradient(to right, #E2E2E2, #C9D6FF);
+}
+
+/* CSS för klassen myClass */
+.myClass {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  color: black;
+}
+
+/* Bakgrundsbild för en div */
+.background-demo {
+  background-image: url('https://i.ibb.co/gdshyRb/spirited-away.png');
+  /* Ersätt med egen bild om du vill */
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px;
+  color: white;
+  height: 500px;
+  width: 700px;
+}
+
+/* Särskild format för span-taggen */
+.highlight {
+  font-weight: bold;
+  color: red;
+}
+
+/* Länkformatering */
+a.link {
+  color: #8A2BE2;
+  text-decoration: none;
+}
+
+a.link:hover {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a.link:visited {
+  color: purple;
+  text-decoration: none;
+}
