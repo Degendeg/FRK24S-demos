@@ -1,0 +1,64 @@
+/* Grundläggande stil för bättre användbarhet och läsbarhet */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+section {
+  margin: 0 60px 30px 60px;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  bottom: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+  font-size: .8rem;
+}
+
+.flex-container {
+  margin-left: 10vw;
+  display: flex;
+  flex-direction: row;
+  gap: 25vw;
+}

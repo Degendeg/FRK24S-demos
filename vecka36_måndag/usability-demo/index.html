@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Användarvänlighet Demo</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Användarvänlighet</h1>
+    <nav>
+      <ul>
+        <!-- "href" med "#" betyder att länken refererar till en annan del av samma sida. Här länkas till specifika sektioner med deras ID:n -->
+        <li><a href="#what_is_usability">Vad är användbarhet?</a></li>
+        <li><a href="#make_it_simple">Gör det enkelt</a></li>
+        <li><a href="#web_usage">Hur vi använder webben</a></li>
+        <li><a href="#webstandards">Webbstandarder</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- "tabindex='0'" gör att sektionen kan fokuseras med tangentbordet, vilket förbättrar tillgängligheten -->
+    <section id="what_is_usability" tabindex="0">
+      <h2>Vad är användbarhet?</h2>
+      <p>Användbarhet är hur lätt det är att använda och lära sig använda ett objekt som är skapat av människor. Det
+        innebär att en webbplats eller applikation ska vara enkel att använda, effektiv och tillfredsställande för
+        användarna.</p>
+    </section>
+
+    <section id="make_it_simple" tabindex="0">
+      <h2>Gör det enkelt</h2>
+      <p>En viktig princip inom användbarhet är KISS: <strong>Keep It Simple Stupid</strong>. Analysera hur webbplatsen
+        ska användas och säkerställ att de mest använda funktionerna är enkla att nå och använda.</p>
+    </section>
+
+    <section id="web_usage" tabindex="0">
+      <h2>Hur vi använder webben</h2>
+      <p>Vi skummar igenom text på webbsidor istället för att läsa den noggrant. För att få användaren att stanna upp
+        kan man använda fokuspunkter, färg och form som attraherar uppmärksamhet.</p>
+    </section>
+
+    <section id="webstandards" tabindex="0">
+      <h2>Webbstandarder</h2>
+      <p>Webbstandarder, såsom de från <a href="http://www.w3.org/Consortium/Points/" target="_blank">W3C</a>, kan
+        förbättra användbarheten genom att säkerställa att webbsidor är tillgängliga och fungerar korrekt över olika
+        enheter och webbläsare. Tillgänglighetskrav enligt <a href="http://www.w3.org/WAI/intro/wcag.php"
+          target="_blank">WCAG</a> är också viktiga, särskilt för offentliga myndigheter.</p>
+    </section>
+  </main>
+
+  <footer>
+    <!-- "flex-container" är en klass som används för att styla elementen med CSS Flexbox, som används för att skapa flexibla layoutstrukturer -->
+    <div class="flex-container">
+      <div>
+        <p>&copy; <span id="current_year"></span> John Doe</p>
+      </div>
+      <div>
+        <!-- "target='_blank'" gör att länken öppnas i en ny flik eller ett nytt fönster -->
+        <p>
+          <a href="https://carlogino.com/blog/improve-website-accessibility" target="_blank">Tillgänglighet - Cheat
+            Sheet</a>
+        </p>
+      </div>
+      <div>
+        <p><a href="https://www.w3schools.com/accessibility/" target="_blank">W3Schools - tillgänglighet</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
