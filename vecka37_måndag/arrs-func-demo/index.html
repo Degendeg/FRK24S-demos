@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Funktioner och Arrayer Demo</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Demo: Funktioner och Arrayer i JavaScript</h1>
+
+        <!-- Funktioner -->
+        <h2>Funktioner</h2>
+        <div class="function-demo">
+            <p>Beräkna fakturabelopp (inklusive moms):</p>
+            <input type="text" id="invoiceAmount" placeholder="Ange belopp">
+            <button onclick="calculateInvoice()">Beräkna</button>
+            <p id="invoiceResult"></p>
+        </div>
+
+        <h2>Array-exempel</h2>
+        <div class="array-demo">
+            <p>Initial Array: <span id="arrayDisplay"></span></p>
+            <button onclick="addNumberToArray()">Lägg till nummer</button>
+            <button onclick="removeLastNumber()">Ta bort sista numret</button>
+            <button onclick="shiftArray()">Ta bort första numret</button>
+            <p>Modifierad Array: <span id="modifiedArrayDisplay"></span></p>
+        </div>
+
+        <h2>Arrow Functions och Anonyma Funktioner</h2>
+        <div class="arrow-demo">
+            <p>Multiplicera ett tal med 2:</p>
+            <input type="number" id="multiplyInput" placeholder="Ange tal">
+            <button onclick="multiplyNumber()">Multiplicera</button>
+            <p id="multiplyResult"></p>
+        </div>
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+
+</html>

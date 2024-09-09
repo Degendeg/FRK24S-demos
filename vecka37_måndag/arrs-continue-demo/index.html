@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array-hantering Demo</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Array-hantering med Filter, Sort, Map och Reduce</h1>
+
+        <!-- Array-funktioner -->
+        <h2>Filter</h2>
+        <div class="array-demo">
+            <p>Array: <span id="filterArrayDisplay"></span></p>
+            <button onclick="filterOver50()">Filtera värden över 50</button>
+            <p>Filtrerad Array: <span id="filteredResult"></span></p>
+        </div>
+
+        <h2>Sortering</h2>
+        <div class="array-demo">
+            <button onclick="sortNumbers()">Sortera Array</button>
+            <p>Sorterad Array: <span id="sortedResult"></span></p>
+        </div>
+
+        <h2>Map</h2>
+        <div class="array-demo">
+            <button onclick="mapAddThree()">Lägg till 3 till varje värde</button>
+            <p>Modifierad Array: <span id="mappedResult"></span></p>
+        </div>
+
+        <h2>Reduce</h2>
+        <div class="array-demo">
+            <button onclick="calculateSum()">Summera värden i Array</button>
+            <p>Summa: <span id="sumResult"></span></p>
+
+            <button onclick="calculateAverage()">Beräkna medelvärde</button>
+            <p>Medelvärde: <span id="averageResult"></span></p>
+        </div>
+    </div>
+
+    <script src="demo.js"></script>
+</body>
+
+</html>
