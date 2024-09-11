@@ -1,0 +1,56 @@
+body {
+  background: linear-gradient(270deg, #6f6f6f, #c7c7c7);
+  background-size: 400% 400%;
+
+  -webkit-animation: gradient 30s ease infinite;
+  animation: gradient 30s ease infinite;
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.2 !important;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+.custom-box {
+  border: 2px solid #007bff;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  margin-top: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+  background-color: yellow;
+  font-weight: bold;
+}

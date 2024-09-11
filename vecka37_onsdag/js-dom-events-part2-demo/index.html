@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JavaScript DOM Manipulation + Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="part2.css">
+</head>
+
+<body>
+
+  <div class="container bg-light p-5 rounded">
+    <h1 class="text-center mb-4">DOM Manipulation with JavaScript</h1>
+    <div class="row justify-content-center">
+      <!-- Left column -->
+      <div class="col-md-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
+          Cras venenatis euismod malesuada.</p>
+      </div>
+
+      <!-- Center column with -->
+      <div class="col-md-4">
+        <div class="custom-box" id="main-box">
+          <div id="main">
+            <p id="intro">This is a simple paragraph in the main div.</p>
+          </div>
+
+          <!-- Input box and buttons -->
+          <div class="mb-3">
+            <input type="text" class="form-control mb-2" id="textBox" placeholder="Type something">
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" id="addTextBtn" onclick="addTextAsParagraph()">Add Text as
+                Paragraph</button>
+              <button class="btn btn-success" id="highlightBtn">Highlight All Paragraphs</button>
+              <button class="btn btn-danger" id="clearHighlightBtn">Clear highlighting</button>
+              <input type="text" class="form-control mb-1 mt-5" id="wordInput" placeholder="Type a word"
+                oninput="this.value = this.value.trim()">
+              <button class="btn btn-warning" id="highlightWordBtn" disabled>Highlight word <span
+                  id="highlightWord"></span></button>
+            </div>
+          </div>
+
+          <!-- Area for adding new elements -->
+          <div id="newContent"></div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div class="col-md-4">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum vestibulum.
+          Cras venenatis euismod malesuada.</p>
+        <p>Aenean feugiat urna justo, a sollicitudin orci aliquam sit amet. Nam euismod scelerisque mauris, id
+          sollicitudin tellus scelerisque at. Donec cursus, risus ut imperdiet feugiat, turpis sapien imperdiet ex, et
+          sagittis dolor nibh vel velit. Cras in ex at lacus scelerisque maximus. Vestibulum sollicitudin leo eget neque
+          sollicitudin, id viverra velit tristique. Vivamus mattis, magna sed molestie sagittis, urna tellus ullamcorper
+          tortor, eu finibus nunc turpis sed purus. Aenean ut hendrerit eros, et elementum odio. Nulla placerat
+          facilisis magna ut tincidunt. Integer sagittis, eros sed ultricies vestibulum, felis justo ornare enim, nec
+          ornare orci magna mollis turpis. Pellentesque iaculis auctor leo, vel cursus quam. Sed tristique vel mauris
+          nec molestie. Duis varius dolor nec dolor rutrum tincidunt. Donec a arcu vulputate, finibus nunc eget, commodo
+          ligula. Proin commodo nec nibh ac ornare. Duis ornare dolor orci, eu laoreet leo condimentum sit amet. Aenean
+          maximus pulvinar tristique.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="part2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+/* Allmänt utseende */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Styling för header */
+h1 {
+  text-align: center;
+  color: #333;
+  padding: 20px;
+  background-color: #e2e2e2;
+}
+
+/* Styling för main-div */
+#main {
+  margin: 5rem 5rem 1rem 5rem;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Styling för paragrafer */
+p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Styling för knappar */
+button {
+  display: inline-block;
+  padding: 10px 15px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#createBtn {
+  margin-left: 5rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
