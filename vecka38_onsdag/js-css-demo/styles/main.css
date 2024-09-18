@@ -1,0 +1,94 @@
+/* General page styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Theme */
+.light-theme {
+  background-color: #f4f4f4;
+  color: black;
+}
+
+/* Dark Theme */
+.dark-theme {
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  cursor: pointer;
+  font-size: 24px;
+  transition: transform 0.3s;
+  border-radius: 50%;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Container */
+#container {
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: white;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Dark Theme for Container */
+.dark-theme #container {
+  background-color: #34495e;
+  border-color: #444;
+}
+
+/* Text styles */
+p {
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* Blue and Red background classes */
+.blueBackground {
+  background-color: lightblue;
+  color: darkblue;
+}
+
+.redBackground {
+  background-color: lightcoral;
+  color: white;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Dark Theme for Buttons */
+.dark-theme button {
+  background-color: #555;
+  color: white;
+}
+
+.dark-theme button:hover {
+  background-color: #777;
+}

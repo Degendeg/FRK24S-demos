@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Image Gallery</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Dog Image Gallery</h1>
+    <div id="gallery"></div>
+    <div class="btn-container">
+      <button onclick="fetchDogImages()">Show New Dogs</button>
+    </div>
+
+    <h2>Fake API Actions (POST, PUT, DELETE)</h2>
+    <button onclick="createPost()">POST</button>
+    <button onclick="updatePost()">PUT</button>
+    <button onclick="deletePost()">DELETE</button>
+    <code id="result"></code>
+  </div>
+  <!-- Script -->
+  <script src="main.js"></script>
+</body>
+
+</html>
