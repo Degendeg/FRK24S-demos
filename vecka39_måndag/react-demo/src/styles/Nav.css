@@ -1,0 +1,13 @@
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.topnav button {
+  border: 1px solid white;
+}
+
+.topnav ul li {
+  float: left;
+  margin-right: 10px;
+}
