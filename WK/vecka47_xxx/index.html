@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX demo</title>
+</head>
+
+<body class="bg-gray-800">
+  <div id="isReloaded" class="absolute flex items-center justify-center right-4 top-4 w-12 h-12 bg-gray-700 text-2xl">
+  </div>
+  <div class="flex items-center justify-center h-screen">
+    <div class="bg-gray-400 w-96 h-96 p-4 rounded shadow-md">
+      <button
+        class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+        onclick="getAuthors()">Hämta Författare</button>
+      <div id="authorList" class="w-2/4 h-2/4"></div>
+    </div>
+    <div class="bg-gray-300 w-36 h-96 ml-2 p-4 rounded shadow-md">
+      <form action="https://thetestrequest.com/authors.xml" method="GET">
+        <button
+          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          type="submit">Hämta Författare</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
