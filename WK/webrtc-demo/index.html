@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="WebRTC code samples">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+  <meta itemprop="description" content="Client-side WebRTC code samples">
+  <meta itemprop="image" content="assets/webrtc-icon-192x192.png">
+  <meta itemprop="name" content="WebRTC code samples">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta id="theme-color" name="theme-color" content="#ffffff">
+  <base target="_blank">
+  <title>WebRTC demo</title>
+  <link rel="icon" sizes="192x192" href="assets/webrtc-icon-192x192.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <div id="container">
+
+    <h1><a href="https://www.tutorialspoint.com/webrtc/index.htm" target="_blank"
+        title="WebRTC samples homepage">WebRTC</a>/ <span><a
+          href="https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia"
+          target="_blank">getUserMedia</a> +
+        CSS filters</span>
+    </h1>
+
+    <video playsinline autoplay></video>
+
+    <label for="filter">Filter: </label>
+    <select id="filter">
+      <option value="none">None</option>
+      <option value="blur">Blur</option>
+      <option value="grayscale">Grayscale</option>
+      <option value="invert">Invert</option>
+      <option value="sepia">Sepia</option>
+    </select>
+
+    <button id="snapshot">Take snapshot</button>
+
+    <canvas></canvas>
+
+    <p>Draw a frame from the getUserMedia video stream onto the canvas element, then apply CSS filters.</p>
+
+    <p>The variables <code>canvas</code>, <code>video</code> and <code>stream</code> are in global scope, so you can
+      inspect them from the console.</p>
+  </div>
+
+  <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+  <script src="js/main.js" async></script>
+
+</body>
+
+</html>
