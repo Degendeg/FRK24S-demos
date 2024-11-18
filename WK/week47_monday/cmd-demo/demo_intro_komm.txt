@@ -1,0 +1,110 @@
+demo - intro komm & säk
+------------------------
+
+# Demo: IP och nätverkskonfiguration via CMD (Command Prompt) på Windows
+
+Här är en lathund för att testa och förstå grunderna i nätverk genom att använda Windows Command Prompt (CMD). Den visar hur man kan undersöka och konfigurera nätverksinställningar. 
+
+---
+
+# 1. Visa din IP-konfiguration
+   - Kommando: `ipconfig`
+   - Vad det gör: Visar IP-adresser, subnätmasker och standard-gateway för dina nätverksadaptrar.
+   - Exempel: 
+     
+     Ethernet adapter Ethernet:
+        IPv4 Address. . . . . . . . . . . : 192.168.1.10
+        Subnet Mask . . . . . . . . . . . : 255.255.255.0
+        Default Gateway . . . . . . . . . : 192.168.1.1
+     
+
+# 2. Testa nätverksanslutning med ping
+   - Kommando: `ping <IP-adress eller domän>`
+   - Vad det gör: Skickar ICMP-paket för att testa anslutning till en annan enhet.
+   - Exempel:
+     
+     ping 8.8.8.8
+     
+     - Testar om du kan nå Googles DNS-server.
+   - Analys: Om du får svar ("Reply from..."), betyder det att nätverket är anslutet korrekt.
+
+# 3. Kontrollera nätverksrutten med tracert
+   - Kommando: `tracert <IP-adress eller domän>`
+   - Vad det gör: Spårar rutten som paketen tar från din dator till destinationen.
+   - Exempel:
+     
+     tracert google.com
+     
+     - Visar hur många hopp och vilka routrar dina paket går igenom innan de når Google.
+
+# 4. Visa aktiv routingtabell
+   - Kommando: `route print`
+   - Vad det gör: Visar systemets routingtabell.
+   - Exempel på output:
+     
+     Network Destination        Netmask          Gateway       Interface  Metric
+     0.0.0.0                    0.0.0.0          192.168.1.1   192.168.1.10   25
+     
+     - Här ser du vilken väg (gateway) som används för att nå olika destinationer.
+
+# 5. Rensa DNS-cache
+   - Kommando: `ipconfig /flushdns`
+   - Vad det gör: Rensar cachelagrad DNS-information.
+   - När används: Om du ändrar DNS-inställningar eller om webbsidor inte laddas korrekt.
+   - Exempel: 
+     
+     Successfully flushed the DNS Resolver Cache.
+     
+
+# 6. Frigör och förnya din IP-adress
+   - Kommandon:
+     1. Frigör: `ipconfig /release`
+     2. Förnya: `ipconfig /renew`
+   - Vad det gör: Begär en ny IP-adress från DHCP-servern.
+   - När används: Om din anslutning inte fungerar korrekt eller om du vill uppdatera din IP-adress.
+
+Dynamic Host Configuration Protocol.
+
+Det är ett nätverksprotokoll som används för att automatiskt tilldela IP-adresser och andra nätverkskonfigurationsparametrar, såsom nätmask, gateway och DNS-servrar, till enheter i ett nätverk. Detta gör det enklare att hantera nätverk, eftersom enheterna inte behöver konfigureras manuellt.
+
+# 7. Testa portöppningar med telnet
+   - Kommando: `telnet <IP-adress> <portnummer>`
+   - Vad det gör: Testar om en specifik port på en server är öppen.
+   - Exempel:
+     telnet 192.168.1.1 80
+     
+     - Kontrollerar om en HTTP-server svarar på port 80.
+
+# 8. Skicka data med netcat (PowerShell krävs)
+   - Kommando: `echo "Hello, network!" | nc <IP> <port>`
+   - Vad det gör: Skickar data till en specifik IP och port.
+   - När används: För att testa en server eller port.
+
+# 9. Visa ARP-tabell
+   - Kommando: `arp -a`
+   - Vad det gör: Visar MAC-adresser och tillhörande IP-adresser i ditt nätverk.
+   - Exempel:
+     Interface: 192.168.1.10 --- 0x3
+       Internet Address      Physical Address      Type
+       192.168.1.1           00-14-22-01-23-45     Dynamic
+     
+Address Resolution Protocol.
+
+Det är ett nätverksprotokoll som används för att översätta en IP-adress (logisk adress) till en MAC-adress (fysisk adress) inom ett lokalt nätverk (LAN). ARP-tabellen innehåller en lista över IP-adresser och deras motsvarande MAC-adresser, vilket gör det möjligt för enheter i nätverket att kommunicera med varandra.
+
+---
+
+# Tillägg: Enkel demo för subnätmask
+1. Titta på din subnätmask:
+   - Kommando: `ipconfig`
+   - Exempel: Om subnätmasken är `255.255.255.0`, kan du ha upp till 254 enheter i ditt nätverk.
+
+2. Beräkna subnät:
+   - Om din IP är `192.168.1.10` och subnätmask är `/24` (`255.255.255.0`), betyder det att adresserna går från:
+     - `192.168.1.1` (nätverksadressen) till `192.168.1.254`.
+
+3. Testa om en viss IP är i samma subnät:
+   - Kontrollera om `192.168.1.20` är i ditt nätverk med kommando:
+     ping 192.168.1.20
+     
+---

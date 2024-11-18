@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML DTD Demo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans flex flex-col min-h-screen">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-4 shadow-md">
+    <div class="container mx-auto text-center">
+      <h1 class="text-3xl font-bold">XML DTD Validering</h1>
+      <p class="text-sm">Ladda upp och validera din XML mot DTD</p>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container mx-auto mt-8 p-4 flex-grow">
+    <!-- Upload -->
+    <section class="bg-white p-6 shadow-md rounded-lg">
+      <h2 class="text-xl font-semibold text-gray-700 mb-4">Ladda upp filer</h2>
+      <form id="validationForm" class="flex flex-col gap-4">
+        <div>
+          <label for="xmlInput" class="block text-sm font-medium text-gray-600">XML-fil:</label>
+          <input type="file" id="xmlInput" accept=".xml"
+            class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:ring-blue-300">
+        </div>
+        <div>
+          <label for="dtdInput" class="block text-sm font-medium text-gray-600">DTD-fil:</label>
+          <input type="file" id="dtdInput" accept=".dtd"
+            class="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring focus:ring-blue-300">
+        </div>
+        <button type="button" id="validateBtn"
+          class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+          Validera
+        </button>
+      </form>
+    </section>
+
+    <!-- Result -->
+    <section id="resultSection" class="mt-8 hidden bg-green-100 p-6 rounded-lg border border-green-300">
+      <h2 class="text-lg font-semibold text-green-700 mb-2">Resultat</h2>
+      <pre id="result" class="text-sm text-gray-700 overflow-x-auto"></pre>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-4 mt-8 sticky top-[100vh]">
+    <div class="container mx-auto text-center">
+      <p class="text-sm">© <span id="currentYear"></span> XML Validator</p>
+    </div>
+  </footer>
+
+  <script src="validator.js"></script>
+</body>
+
+</html>
