@@ -1,0 +1,7 @@
+<!-- <!DOCTYPE BusinessCard [ -->
+<!ELEMENT BusinessCard (name, phone*, email)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT phone (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ATTLIST phone type (home|work|mobile) #REQUIRED>
+<!-- ]> -->
