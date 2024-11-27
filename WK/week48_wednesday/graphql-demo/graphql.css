@@ -1,0 +1,63 @@
+@import url('https://fonts.cdnfonts.com/css/star-wars');
+
+html,
+body {
+    height: 100%;
+    overflow-y: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("https://wallpapercave.com/wp/wp6477122.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 30px;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #d6dee1;
+    border-radius: 20px;
+    border: 6px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #a8bbbf;
+}
+
+h1 {
+    font-family: 'Star Wars', sans-serif;
+    font-size: 4rem;
+    color: #F8F226;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 80%;
+    max-width: 500px;
+    max-height: 60%;
+    overflow-y: scroll;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.character {
+    border-bottom: 1px solid #a8bbbf;
+}
