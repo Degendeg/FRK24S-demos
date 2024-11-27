@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Demo</title>
+    <style>
+        body {
+            display: flex;
+            height: 100vh;
+            margin: 5vh 0;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .header {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .task-container {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 1s;
+        }
+
+        #left {
+            background-color: lightblue;
+        }
+
+        #right {
+            background-color: lightcoral;
+        }
+
+        .task-message {
+            font-size: 3rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+        }
+
+        .loading {
+            background-color: yellow;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header to indicate current mode -->
+    <div class="header" id="modeHeader">Running in Asynchronous Mode</div>
+
+    <div id="left" class="task-container">
+        <div id="fastTaskMessage" class="task-message">Fast Task</div>
+    </div>
+
+    <div id="right" class="task-container">
+        <div id="slowTaskMessage" class="task-message">Slow Task</div>
+    </div>
+
+    <script>
+        // Simulate a slow task with a promise and setTimeout
+        function slowTask() {
+            return new Promise((resolve) => {
+                console.info("slow task started");
+                document.getElementById('right').classList.add('loading'); // Change background to indicate loading
+                document.getElementById('slowTaskMessage').textContent = 'Processing Slow Task...'; // Change task message
+
+                // Simulate processing by using setTimeout (instead of blocking with a while loop)
+                setTimeout(function () {
+                    console.log("slow task finished");
+                    document.getElementById('right').classList.remove('loading'); // Reset background after task finishes
+                    document.getElementById('slowTaskMessage').textContent = 'Slow Task Finished!'; // Update task message
+                    resolve(); // Resolve promise after task finishes
+                }, 2000); // The task takes 2 seconds to complete
+            });
+        }
+
+        // Simulate an asynchronous slow task with a promise
+        function asyncSlowTask() {
+            return new Promise((resolve) => {
+                console.info("async slow task started");
+                document.getElementById('right').classList.add('loading'); // Change background to indicate loading
+                document.getElementById('slowTaskMessage').textContent = 'Processing Async Slow Task...'; // Change task message
+
+                setTimeout(function () {
+                    console.log("async slow task finished");
+                    document.getElementById('right').classList.remove('loading'); // Reset background after task finishes
+                    document.getElementById('slowTaskMessage').textContent = 'Async Slow Task Finished!'; // Update task message
+                    resolve(); // Resolve promise after task finishes
+                }, 2000); // The task takes 2 seconds to complete
+            });
+        }
+
+        // Simulate a fast task
+        function fastTask() {
+            return new Promise((resolve) => {
+                console.info("fast task started");
+                document.getElementById('left').classList.add('loading'); // Change background to indicate loading
+                document.getElementById('fastTaskMessage').textContent = 'Processing Fast Task...'; // Change task message
+
+                // Simulate fast task by using setTimeout
+                setTimeout(function () {
+                    console.log("fast task finished");
+                    document.getElementById('left').classList.remove('loading'); // Reset background after task finishes
+                    document.getElementById('fastTaskMessage').textContent = 'Fast Task Finished!'; // Update task message
+                    resolve(); // Resolve promise after task finishes
+                }, 500);  // Fast task takes 0.5 seconds to complete
+            });
+        }
+
+        // Running asynchronous task sequence
+        function runTasksAsync() {
+            document.getElementById('modeHeader').textContent = "Running in Asynchronous Mode"; // Update header
+            fastTask();
+            asyncSlowTask();
+            fastTask();
+            asyncSlowTask();
+        }
+
+        // Running tasks in a synchronous-like sequence
+        async function runTasks() {
+            document.getElementById('modeHeader').textContent = "Running in Synchronous Mode"; // Update header
+            await fastTask();   // Wait for fast task to complete
+            await slowTask();   // Wait for slow task to complete
+            await fastTask();   // Wait for another fast task to complete
+            await slowTask();   // Wait for another slow task to complete
+        }
+
+        // Running tasks in a truly synchronous sequence
+        function runTasksTrueSync() {
+            document.getElementById('modeHeader').textContent = "Running in Synchronous Mode"; // Update header
+            fastTask();   // Run fast task (blocks next execution)
+            slowTask();   // Run slow task (blocks next execution)
+            fastTask();   // Run another fast task (blocks next execution)
+            slowTask();   // Run another slow task (blocks next execution)
+        }
+
+
+        // Running tasks in an asynchronous sequence
+        async function runTasksTrueAsync() {
+            document.getElementById('modeHeader').textContent = "Running in Asynchronous Mode"; // Update header
+            fastTask();   // Fast task runs asynchronously (non-blocking)
+            await asyncSlowTask();   // Slow task runs asynchronously (non-blocking)
+            fastTask();   // Another fast task runs asynchronously
+            await asyncSlowTask();   // Another slow task runs asynchronously
+        }
+
+        // Uncomment the line below to run the synchronous task sequence
+        // runTasks();
+        // runTasksTrueSync();
+
+        // Running asynchronous task sequence
+        // runTasksAsync();
+        // runTasksTrueAsync();
+
+    </script>
+
+</body>
+
+</html>

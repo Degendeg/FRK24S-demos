@@ -1,0 +1,52 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produktkatalog (SPA)</title>
+    <link rel="stylesheet" href="spa.css">
+</head>
+
+<body>
+    <h1>Produktkatalog</h1>
+    <p>Välj en kategori:</p>
+    <ul>
+        <li><button onclick="showCategory('electronics')">Elektronik</button></li>
+        <li><button onclick="showCategory('clothing')">Kläder</button></li>
+    </ul>
+
+    <div id="categories">
+        <div id="electronics" class="hidden">
+            <h2>Elektronik</h2>
+            <ul>
+                <li>Mobiltelefon</li>
+                <li>Dator</li>
+                <li>TV</li>
+            </ul>
+        </div>
+        <div id="clothing" class="hidden">
+            <h2>Kläder</h2>
+            <ul>
+                <li>T-shirt</li>
+                <li>Byxor</li>
+                <li>Jacka</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showCategory(category) {
+            // Göm alla kategorier
+            document.querySelectorAll('#categories > div').forEach(div => {
+                div.classList.add('hidden');
+            });
+
+            // Visa vald kategori
+            document.getElementById(category).classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
