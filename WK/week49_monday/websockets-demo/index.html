@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Websockets demo</title>
+  <style>
+    #log {
+      border: 1px solid gray;
+      padding: 10px;
+      margin-top: 10px;
+      max-height: 200px;
+      max-width: 800px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="sendButton">Skicka</button>
+  <div id="log"></div>
+  <script>
+    // Skapa WS anslutning
+    const socket = new WebSocket('ws://localhost:8080')
+
+    // DOM element
+    const sendButton = document.getElementById('sendButton')
+    const logDiv = document.getElementById('log')
+
+    // Chuck Norris skämt
+    let joke = null;
+
+    // lägg till meddelande i loggen
+    const addToLog = (message) => {
+      const p = document.createElement('p')
+      p.textContent = message
+      logDiv.appendChild(p)
+      logDiv.scrollTop = logDiv.scrollHeight // scrolla till botten
+    }
+
+    // hämta skämt
+    const getChuckNorrisJoke = async () => {
+      const res = await fetch("https://api.chucknorris.io/jokes/random")
+      const data = await res.json()
+      joke = data.value
+    }
+
+    // när anslutning är klar
+    socket.onopen = () => {
+      addToLog('WebSocket-anslutning är öppen.')
+    }
+
+    // när något skickas från servern
+    socket.onmessage = (event) => {
+      addToLog('Meddelande från servern: ' + event.data)
+    }
+
+    // knapp event
+    sendButton.addEventListener('click', () => {
+      if (socket.readyState === WebSocket.OPEN) {
+        const message = `${new Date().toLocaleTimeString()}: ${joke}`
+        socket.send(message)
+        // hämta nytt skämt
+        getChuckNorrisJoke()
+      } else {
+        addtoLog('WebSocket är inte öppen. Ingen handskakning!')
+      }
+    })
+
+    // när anslutning stängs
+    socket.onclose = () => {
+      addToLog('WebSocket-anslutning stängd')
+    }
+
+    // populera joke, den initieras som null
+    getChuckNorrisJoke()
+  </script>
+</body>
+
+</html>
