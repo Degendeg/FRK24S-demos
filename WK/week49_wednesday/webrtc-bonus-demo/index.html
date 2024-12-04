@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC Demo</title>
+</head>
+
+<body>
+  <h1>WebRTC with WebSockets</h1>
+  <video id="localVideo" autoplay playsinline></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <script>
+    const localVideo = document.getElementById('localVideo');
+    const remoteVideo = document.getElementById('remoteVideo');
+    const signalingServer = new WebSocket('wss://' + location.host);
+
+    const peerConnection = new RTCPeerConnection();
+
+    // Stream setup
+    navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+      .then(stream => {
+        localVideo.srcObject = stream;
+        stream.getTracks().forEach(track => peerConnection.addTrack(track, stream));
+      })
+      .catch(error => {
+        console.error("Error accessing webcam: ", error);
+      });
+
+    peerConnection.ontrack = event => {
+      remoteVideo.srcObject = event.streams[0];
+    };
+
+    // WebSocket signaling
+    signalingServer.onmessage = async event => {
+      const data = JSON.parse(event.data);
+
+      if (data.offer) {
+        // Answerer side: Respond to offer
+        await peerConnection.setRemoteDescription(new RTCSessionDescription(data.offer));
+        const answer = await peerConnection.createAnswer();
+        await peerConnection.setLocalDescription(answer);
+        signalingServer.send(JSON.stringify({ answer }));
+      }
+
+      if (data.answer) {
+        // Caller side: Handle remote answer
+        await peerConnection.setRemoteDescription(new RTCSessionDescription(data.answer));
+      }
+
+      if (data.candidate) {
+        // ICE Candidate exchange
+        await peerConnection.addIceCandidate(new RTCIceCandidate(data.candidate));
+      }
+    };
+
+    peerConnection.onicecandidate = event => {
+      if (event.candidate) {
+        // Send ICE candidates to the other peer
+        signalingServer.send(JSON.stringify({ candidate: event.candidate }));
+      }
+    };
+
+    // Wait for the WebSocket to open before creating the offer
+    signalingServer.onopen = () => {
+      createOffer(); // Now that the WebSocket is open, create the offer
+    };
+
+    // Caller side - Initiate the offer
+    function createOffer() {
+      peerConnection.createOffer()
+        .then(offer => {
+          return peerConnection.setLocalDescription(offer);
+        })
+        .then(() => {
+          signalingServer.send(JSON.stringify({ offer: peerConnection.localDescription }));
+        })
+        .catch(error => {
+          console.error("Error creating offer: ", error);
+        });
+    }
+  </script>
+</body>
+
+</html>
