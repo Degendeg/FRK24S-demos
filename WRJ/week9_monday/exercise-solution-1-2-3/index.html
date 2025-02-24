@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Demo</title>
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.23.10/babel.min.js"></script>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // function HelloWorld() {
+    //   return (
+    //     <>
+    //       <h1>Hello World</h1>
+    //       <h1>Hello World again</h1>
+    //     </>
+    //   );
+    // }
+
+    // ReactDOM.createRoot(document.getElementById("root")).render(
+    //   <>
+    //     <HelloWorld />
+    //     <HelloWorld />
+    //     <HelloWorld />
+    //   </>
+    // );
+
+    function NewsArticle() {
+      return (
+        <div>
+          <h1>Breaking News</h1>
+          <p>This is the latest news update.</p>
+          <p>Check out this demo: <a href="https://www.w3schools.com/whatis/tryit.asp?filename=trywhatis_react_component_function" target="_blank">Demo</a></p>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(
+      <NewsArticle />
+    );
+  </script>
+</body>
+
+</html>
