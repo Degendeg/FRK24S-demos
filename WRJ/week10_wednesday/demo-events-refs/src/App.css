@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .bg-diagonal-lines {
+    background-image: repeating-linear-gradient(45deg,
+        #d1d1d1 0px,
+        #d1d1d1 1px,
+        transparent 2px,
+        transparent 6px);
+    background-size: 100%;
+  }
+}
