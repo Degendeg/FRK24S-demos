@@ -7,15 +7,13 @@ import Article from "../../pages/Article"
 
 const RouteSwitch = () => {
   return (
-    <div className="routes-wrapper">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/article/:id" element={<Article />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/article/:id" element={<Article />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   )
 }
 export default RouteSwitch

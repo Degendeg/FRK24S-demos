@@ -35,7 +35,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 70vh;
 }
 
 h1 {
@@ -45,7 +45,7 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 5px solid white;
+  border: 1px solid white;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;

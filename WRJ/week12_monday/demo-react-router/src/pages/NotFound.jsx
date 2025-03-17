@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <>
       <h1>404 error! 🚫</h1>
-      <button onClick={() => nav(-1)}>Go</button >
+      <button onClick={() => nav(-1)}>Go back</button>
     </>
   )
 }
