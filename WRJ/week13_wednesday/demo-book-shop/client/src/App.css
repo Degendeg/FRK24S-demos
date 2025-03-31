@@ -1,42 +1,152 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+}
+
+.app {
+  height: auto;
+  padding: 0 100px 100px;
+  background: rgb(241, 241, 241);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app .addBtn {
+  padding: 10px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app button .btnLink {
+  color: inherit;
+  text-decoration: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app button:hover:not(:disabled) {
+  transform: scale(1.1);
+  transition: transform ease .2s;
 }
 
-.card {
-  padding: 2em;
+.app .books {
+  display: flex;
 }
 
-.read-the-docs {
-  color: #888;
+.app .wrapper {
+  padding: 100px;
+  width: 100vw;
+  height: 50vh;
+}
+
+.app .wrapper h1 {
+  font-size: 6em;
+  margin-bottom: 0;
+  color: red;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.app .wrapper button {
+  margin-top: 5vh;
+  padding: 10px;
+  font-size: .8em;
+  cursor: pointer;
+}
+
+.app .wrapper button:hover {
+  transform: scale(1.1);
+  transition: transform ease .5s;
+}
+
+.app .form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app .form-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.app .form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.app .form input {
+  width: 250px;
+  padding: 10px;
+  border: 1px solid gray;
+}
+
+.app .form textarea {
+  resize: vertical;
+  padding: 10px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.app .form-image img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.app .form button {
+  border: none;
+  padding: 10px;
+  background-color: white;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.app .form button:disabled {
+  cursor: default;
+  opacity: 0.3;
+}
+
+.app h1 {
+  margin: 10vh 0 5vh 0;
+}
+
+.app .books .book {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.app .books .book img {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.app .books .book button {
+  padding: 3px 6px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.app .books .book .deleteBtn {
+  color: #f26464;
+  border: 1px solid #f5bfbf;
+}
+
+.app .books .book .updateBtn {
+  color: #8b8bea;
+  border: 1px solid #ccccf3;
 }
