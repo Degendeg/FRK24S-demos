@@ -43,7 +43,7 @@ const Update = () => {
 
   return (
     <div className="form">
-      <h1 className="update-form-h1">Update {book.title || 'the Book'}</h1>
+      <h1>Update {book.title || 'the Book'}</h1>
       <div className="form-wrapper">
         <div className="form-content">
           <input
