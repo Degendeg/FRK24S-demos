@@ -23,6 +23,7 @@ const Update = () => {
       }
     }
     fetchBookById()
+    window.scrollTo(0, 0)
   }, [])
 
   const handleChange = (e) => {

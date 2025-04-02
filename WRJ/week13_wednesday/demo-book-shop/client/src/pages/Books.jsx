@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
+import Loading from "../components/Loading"
 
 const Books = () => {
   const [books, setBooks] = useState([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchAllBooks = async () => {
@@ -12,9 +14,14 @@ const Books = () => {
         setBooks(res.data)
       } catch (err) {
         console.log(err)
+      } finally {
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000) // 2 sec
       }
     }
     fetchAllBooks()
+    window.scrollTo(0, 0)
   }, [])
 
   const handleDelete = async (book) => {
@@ -30,22 +37,30 @@ const Books = () => {
 
   return (
     <div>
-      <h1>{document.title && document.title.substring(0, 5).replace(/^./, str => str.toUpperCase())} Book Shop</h1>
+      <h1>{document.title && document.title.substring(0, 5)} Book Shop</h1>
       <div className="books">
-        {books.map((book) => (
-          <div key={book.id} className="book">
-            <img src={book.cover} alt={book.title + ' cover'} />
-            <h2>{book.title}</h2>
-            <p>{book.desc}</p>
-            <span><strong>$</strong>{book.price}</span>
-            <button className="deleteBtn" onClick={() => handleDelete(book)}>Delete</button>
-            <button className="updateBtn">
-              <Link className="btnLink" to={`/update/${book.id}`}>
-                Update
-              </Link>
-            </button>
+        {loading ? (
+          <div className="loading-wrapper">
+            <Loading />
           </div>
-        ))}
+        ) : (
+          <>
+            {books.map((book) => (
+              <div key={book.id} className="book">
+                <img src={book.cover} alt={book.title + ' cover'} />
+                <h2>{book.title}</h2>
+                <p>{book.desc}</p>
+                <span><strong>$</strong>{book.price}</span>
+                <button className="deleteBtn" onClick={() => handleDelete(book)}>Delete</button>
+                <button className="updateBtn">
+                  <Link className="btnLink" to={`/update/${book.id}`}>
+                    Update
+                  </Link>
+                </button>
+              </div>
+            ))}
+          </>
+        )}
       </div>
       <button className="addBtn">
         <Link className="btnLink" to="/add">

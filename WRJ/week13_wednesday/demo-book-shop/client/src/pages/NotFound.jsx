@@ -1,7 +1,11 @@
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 
 const NotFound = () => {
   const nav = useNavigate()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className="wrapper">
       <h1>404</h1>
