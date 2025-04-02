@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useLayoutEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 import Loading from "../components/Loading"
@@ -6,6 +6,10 @@ import Loading from "../components/Loading"
 const Books = () => {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   useEffect(() => {
     const fetchAllBooks = async () => {
@@ -21,7 +25,6 @@ const Books = () => {
       }
     }
     fetchAllBooks()
-    window.scrollTo(0, 0)
   }, [])
 
   const handleDelete = async (book) => {
