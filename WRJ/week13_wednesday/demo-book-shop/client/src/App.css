@@ -128,7 +128,12 @@
 }
 
 .app h1 {
-  margin: 20vh 0 5vh 0;
+  margin: 0 0 5vh 0;
+}
+
+.app h2 {
+  margin-bottom: 2vh;
+  font-size: 4em;
 }
 
 .app .books .book {
