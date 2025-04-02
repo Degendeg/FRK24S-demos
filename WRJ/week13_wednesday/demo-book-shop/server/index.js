@@ -1,7 +1,10 @@
-import "dotenv/config"
+import dotenv from "dotenv"
 import express from "express"
 import cors from "cors"
 import mysql from "mysql2"
+
+const env = process.env.NODE_ENV || "dev"
+dotenv.config({ path: env === "prod" ? ".env.prod" : ".env.dev" })
 
 const app = express()
 app.use(cors())
@@ -12,6 +15,7 @@ const db = mysql.createPool({
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_DATABASE,
+    port: process.env.DB_PORT || 3306,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -39,7 +43,7 @@ app.get("/", (req, res) => {
  * @descr Fetch all books from the db
  */
 app.get("/books", (req, res) => {
-    const q = "SELECT * FROM books"
+    const q = "SELECT id, title, `desc`, price, cover FROM books"
     db.query(q, (err, data) => {
         if (err) {
             console.log(err)
