@@ -48,7 +48,7 @@ const Books = () => {
           </div>
         ) : (
           <>
-            {books.length < 1 && <h2>Inga böcker till salu 🥺</h2>}
+            {books.length < 1 && <h2 className="no-books">Inga böcker till salu 🥺</h2>}
             {books.length >= 1 && books.map((book) => (
               <div key={book.id} className="book">
                 <img src={book.cover} alt={book.title + ' cover'} />
