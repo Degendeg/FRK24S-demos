@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "username": "benjamin",
+      "hash": "$2b$12$kwr5SPBFqyw0uxcgjtWRsOjcLbmcCPHd5Ro6BjX7ttKCTIO7RR//u"
+    },
+    {
+      "username": "degen",
+      "hash": "$2b$12$eUiOcwYBiYE93ClPmjQLr.ficZ31gNq5uHga5e47oPWItSXc0nuyO"
+    }
+  ]
+}
