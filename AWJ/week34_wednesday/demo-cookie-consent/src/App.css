@@ -1,0 +1,75 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.App {
+  margin-bottom: 20vh;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.gdpr-info {
+  margin: 20px;
+}
+
+.gdpr-info h2 {
+  color: #61dafb;
+}
+
+.gdpr-info p {
+  font-size: 16px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+a {
+  color: #61dafb;
+}
+
+.cookie-banner {
+  background: #2B373B !important;
+}
+
+.cookie-accept-btn {
+  color: #4e503b !important;
+  font-size: 13px !important;
+}
+
+.cookie-policy-link {
+  color: #FFD700;
+}
